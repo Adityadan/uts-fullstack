@@ -4,9 +4,9 @@
 session_start();
 // Periksa apakah pengguna sudah login
 if (!isset($_SESSION['username'])) {
-    // Jika tidak, redirect ke halaman login
-    header("Location: index.php");
-    exit();
+  // Jika tidak, redirect ke halaman login
+  header("Location: index.php");
+  exit();
 }
 // Fungsi logout
 /* if (isset($_GET['logout'])) {
@@ -43,7 +43,7 @@ $result = mysqli_query($conn, $query);
 
 // Periksa apakah query dieksekusi dengan sukses
 if (!$result) {
-    die("Query gagal dieksekusi: " . mysqli_error($conn));
+  die("Query gagal dieksekusi: " . mysqli_error($conn));
 }
 
 // Inisialisasi variabel untuk menampung hasil HTML
@@ -51,17 +51,17 @@ $tableRows = '';
 
 // Periksa apakah ada baris data yang dikembalikan
 if (mysqli_num_rows($result) > 0) {
-    // Looping untuk menampilkan daftar cerita
-    while ($row = mysqli_fetch_assoc($result)) {
-        // Tambahkan baris HTML untuk setiap cerita
-        $tableRows .= "<tr>";
-        $tableRows .= "<td>" . $row['judul'] . "</td>";
-        $tableRows .= "<td>" . $row['pembuat'] . "</td>";
-        $tableRows .= "<td><a href='lihat-cerita.php?id=" . $row['idcerita'] . "'>Lihat</a></td>";
-        $tableRows .= "</tr>";
-    }
+  // Looping untuk menampilkan daftar cerita
+  while ($row = mysqli_fetch_assoc($result)) {
+    // Tambahkan baris HTML untuk setiap cerita
+    $tableRows .= "<tr>";
+    $tableRows .= "<td>" . $row['judul'] . "</td>";
+    $tableRows .= "<td>" . $row['pembuat'] . "</td>";
+    $tableRows .= "<td><a href='lihat-cerita.php?id=" . $row['idcerita'] . "'>Lihat</a></td>";
+    $tableRows .= "</tr>";
+  }
 } else {
-    $tableRows = "<tr><td colspan='3'>Tidak ada data cerita yang ditemukan.</td></tr>";
+  $tableRows = "<tr><td colspan='3'>Tidak ada data cerita yang ditemukan.</td></tr>";
 }
 
 // Hitung jumlah halaman
@@ -81,7 +81,9 @@ mysqli_close($conn);
     border-collapse: collapse;
     width: 100%;
   }
-  th, td {
+
+  th,
+  td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -91,11 +93,13 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Halaman Home</title>
 </head>
+
 <body>
   <h1>Halaman Home</h1>
 
@@ -106,8 +110,8 @@ mysqli_close($conn);
     </form>
   </div>
 
-  <a href="add-cerita.php">Buat Cerita Baru</a>
-
+  <!-- <a href="add-cerita.php">Buat Cerita Baru</a> -->
+  <button type="button" style="margin-bottom: 1%;" onclick="window.location.href='add-cerita.php';">Buat Cerita Baru</button>
   <table>
     <thead>
       <tr>
@@ -128,4 +132,5 @@ mysqli_close($conn);
   <p><a href="logout.php">Logout</a></p>
 
 </body>
+
 </html>

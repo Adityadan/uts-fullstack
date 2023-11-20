@@ -4,7 +4,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "uts";
+$database = "uts_fullstack";
 
 // Buat koneksi ke database
 $conn = mysqli_connect($host, $user, $password, $database);
@@ -13,5 +13,3 @@ $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn) {
   die("Koneksi ke database gagal: " . mysqli_connect_error());
 }
-
-?>
