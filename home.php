@@ -38,6 +38,7 @@ $query = "SELECT cerita.idcerita, cerita.judul, users.nama as pembuat
           LEFT JOIN users ON cerita.idusers_pembuat_awal = users.idusers
           $where_cari
           LIMIT $offset, $jumlah_data_per_halaman";
+
 // Eksekusi query
 $result = mysqli_query($conn, $query);
 
@@ -129,7 +130,8 @@ mysqli_close($conn);
       <a href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a>
     <?php endfor; ?>
   </div>
-  <p><a href="logout.php">Logout</a></p>
+  <!-- <p><a href="logout.php">Logout</a></p> -->
+  <button type="button" style="margin-top: 1%;" onclick="window.location.href='logout.php';">Logout</button>
 
 </body>
 
