@@ -30,13 +30,13 @@ $offset = ($halaman_aktif - 1) * $jumlah_data_per_halaman;
 
 // Proses pencarian & query pencarian
 $keyword = isset($_POST['judul']) ? $_POST['judul'] : '';
-$where_clause = $keyword ? "WHERE cerita.judul LIKE '%$keyword%'" : '';
+$where_cari = $keyword ? "WHERE cerita.judul LIKE '%$keyword%'" : '';
 
 // Buat query untuk mengambil data cerita dengan pagination dan pencarian
 $query = "SELECT cerita.idcerita, cerita.judul, users.nama as pembuat 
           FROM cerita 
           LEFT JOIN users ON cerita.idusers_pembuat_awal = users.idusers
-          $where_clause
+          $where_cari
           LIMIT $offset, $jumlah_data_per_halaman";
 // Eksekusi query
 $result = mysqli_query($conn, $query);
@@ -65,7 +65,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Hitung jumlah halaman
-$query_count = "SELECT COUNT(*) as total FROM cerita $where_clause";
+$query_count = "SELECT COUNT(*) as total FROM cerita $where_cari";
 $result_count = mysqli_query($conn, $query_count);
 $row_count = mysqli_fetch_assoc($result_count);
 $total_data = $row_count['total'];
