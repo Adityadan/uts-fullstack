@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 20/11/2023 15:26:47
+ Date: 20/11/2023 15:39:02
 */
 
 SET NAMES utf8mb4;
@@ -28,13 +28,14 @@ CREATE TABLE `cerita`  (
   PRIMARY KEY (`idcerita`) USING BTREE,
   INDEX `idusers_pembuat_awal`(`idusers_pembuat_awal` ASC) USING BTREE,
   INDEX `idcerita`(`idcerita` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cerita
 -- ----------------------------
 INSERT INTO `cerita` VALUES (4, 'tes judul', '1');
 INSERT INTO `cerita` VALUES (5, 'dandut', '1');
+INSERT INTO `cerita` VALUES (6, 'Penguatan Kelembagaan Kabupaten/Kota Layak Anak (KLA)', '1');
 
 -- ----------------------------
 -- Table structure for paragraf
@@ -49,7 +50,7 @@ CREATE TABLE `paragraf`  (
   PRIMARY KEY (`idparagraf`) USING BTREE,
   INDEX `idusers`(`idusers` ASC) USING BTREE,
   INDEX `idcerita`(`idcerita` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of paragraf
@@ -57,6 +58,9 @@ CREATE TABLE `paragraf`  (
 INSERT INTO `paragraf` VALUES (1, '1', 4, ' do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis bibendum ut tristique et egestas quis ipsum. Morbi tempus iaculis urna id volutpat lacus. Augue eget arcu dictum varius duis at consectetur lorem. Amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Pellentesque sit amet porttitor eget dolor morbi non. Sed arcu non odio euismod lacinia at. Et tortor at risus viverra adipiscing at in tellus integer. Nec sagittis aliquam malesuada bibendum ar', '2023-11-20 14:59:38');
 INSERT INTO `paragraf` VALUES (2, '1', 5, ' do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis bibendum ut tristique et egestas quis ipsum. Morbi tempus iaculis urna id volutpat lacus. Augue eget arcu dictum varius duis at consectetur lorem. Amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Pellentesque sit amet porttitor eget dolor morbi non. Sed arcu non odio euismod lacinia at. Et tortor at risus viverra adipiscing at in tellus integer. Nec sagittis aliquam malesuada bibendum ar', '2023-11-20 15:20:28');
 INSERT INTO `paragraf` VALUES (3, '', 5, 'assalamualaikum wr.wb', '2023-11-20 15:25:11');
+INSERT INTO `paragraf` VALUES (4, '1', 6, '1. The word \"hutan\" can be rewritten in various ways to convey the same meaning. \r\n2. Examples of synonymous words for \"hutan\" include forest, jungle, woodland, and bush. \r\n3. Ultimately, the choice of word depends on the context in which it is being used and personal preference.', '2023-11-20 15:34:12');
+INSERT INTO `paragraf` VALUES (5, '1', 6, '1. The sea is a term commonly used to describe the extensive saltwater that envelops the majority of the Earth\'s surface.\r\n2. The sea, an apparently boundless stretch of saltwater, is frequently denoted as the ocean.\r\n3. Countless marine creatures inhabit the sea, an immense and enigmatic water body.', '2023-11-20 15:37:16');
+INSERT INTO `paragraf` VALUES (6, '1', 6, '1. A creature of frightening appearance and often immense size is commonly referred to as a monster. \r\n2. A being that is typically depicted as terrifying or dangerous due to its appearance or behavior is known as a monster. \r\n3. A monster is a fictional or mythical creature that is often portrayed as a threat to humans or other living beings.', '2023-11-20 15:37:43');
 
 -- ----------------------------
 -- Table structure for users
